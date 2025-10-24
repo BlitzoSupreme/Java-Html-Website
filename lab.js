@@ -81,3 +81,66 @@ function animate() {
   renderer.render( scene, camera );
 
 }
+
+function onWindowResize(){
+
+  camera.aspect = window.innerWidth / window.innerHeight;
+
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight );
+
+}
+
+window.addEventListener('resize', onWindowResize);
+
+
+//create skybox function
+
+const createskybox = () => {
+
+  let bgMesh;
+
+  const loader = new THREE.TextureLoader();
+
+// load a resource
+loader.load(
+	// resource URL
+	'Assets/img/galaxy.jpg',
+
+	// onLoad callback
+	function ( texture ) {
+		// in this example we create the material when the texture is loaded
+		const material = new THREE.MeshBasicMaterial( {
+			map: texture
+		 } );
+	},
+
+	// onProgress callback currently not supported
+	undefined,
+
+	// onError callback
+	function ( err ) {
+		console.error( 'An error happened.' );
+	}
+);
+
+  let spheregeometry = new THREE.SphereGeometry(100,60,40);
+  let spherematerial = new THREE.MeshBasicMaterial(
+    {
+      map: texture
+      side: THREE.DoubleSide
+
+    }
+  )
+
+  spheregeometry.scale(-1,1,1);
+
+  bgMesh = new THREE.Mesh(spheregeometry,spherematerial);
+  scene.add(bgMesh)
+  bgMesh.position.set(0,0,0)
+
+
+}
+
+createskybox();
