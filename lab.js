@@ -98,49 +98,20 @@ window.addEventListener('resize', onWindowResize);
 //create skybox function
 
 const createskybox = () => {
+let bgMesh;
+const loader = new THREE.TextureLoader();
+  
 
-  let bgMesh;
-
-  const loader = new THREE.TextureLoader();
-
-// load a resource
-loader.load(
-	// resource URL
-	'Assets/img/galaxy.jpg',
-
-	// onLoad callback
-	function ( texture ) {
-		// in this example we create the material when the texture is loaded
-		const material = new THREE.MeshBasicMaterial( {
-			map: texture
-		 } );
-	},
-
-	// onProgress callback currently not supported
-	undefined,
-
-	// onError callback
-	function ( err ) {
-		console.error( 'An error happened.' );
-	}
-);
-
-  let spheregeometry = new THREE.SphereGeometry(100,60,40);
-  let spherematerial = new THREE.MeshBasicMaterial(
-    {
-      map: texture
+  loader.load('C:/Users/S23230695/Documents/Java/Java-Html-Website/Assets/img/skybox.jpg', function(texture) {
+    var sphereGeometry = new THREE.sphereGeometry(100,60,40)
+    var sphereMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
       side: THREE.DoubleSide
-
-    }
-  )
-
-  spheregeometry.scale(-1,1,1);
-
-  bgMesh = new THREE.Mesh(spheregeometry,spherematerial);
-  scene.add(bgMesh)
-  bgMesh.position.set(0,0,0)
-
-
+    })
+    sphereGeometry.scale(-1,1,1);
+    bgMesh = new THREE.Mesh(sphereGeometry , sphereMaterial);
+    scene.add(bgMesh);
+    bgMesh.position.set(0,0,0)
+  })
+  
 }
-
-createskybox();
