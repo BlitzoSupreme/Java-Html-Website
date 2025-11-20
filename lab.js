@@ -50,37 +50,52 @@ cube6.position.y = -5
 
 camera.position.z = 10;
 
+// Store cubes in an array for easy access
+const cubes = [cube, cube2, cube3, cube4, cube5, cube6];
+
+// Raycaster and mouse for click detection
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+// Exploding cubes state
+const explodingCubes = new Set();
+
+renderer.domElement.addEventListener('pointerdown', (event) => {
+  mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+  mouse.y = - (event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+
+  raycaster.setFromCamera(mouse, camera);
+  const intersects = raycaster.intersectObjects(cubes);
+
+  if (intersects.length > 0) {
+    const clickedCube = intersects[0].object;
+    explodingCubes.add(clickedCube);
+  }
+});
+
 function animate() {
+  cubes.forEach((c) => {
+    c.rotation.x += 0.01;
+    c.rotation.y += 0.01;
 
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-
-  cube2.rotation.x += 0.01;
-  cube2.rotation.y += 0.01;
-
-  cube3.rotation.x += 0.01;
-  cube3.rotation.y += 0.01;
-
-  cube4.rotation.x += 0.01;
-  cube4.rotation.y += 0.01;
-
-  cube5.rotation.x += 0.01;
-  cube5.rotation.y += 0.01;
-
-  cube6.rotation.x += 0.01;
-  cube6.rotation.y += 0.01;
-
-  if(cube.position >= 10) (
-    cube.position.x = 10
-  )
-
-  if(cube2.position <= 10) (
-    cube.position.x = - 10
-  )
+    // If cube is exploding, scale it up and fade out
+    if (explodingCubes.has(c)) {
+      c.scale.x += 0.2;
+      c.scale.y += 0.2;
+      c.scale.z += 0.2;
+      c.material.opacity = (c.material.opacity || 1) - 0.05;
+      c.material.transparent = true;
+      if (c.material.opacity <= 0) {
+        scene.remove(c);
+        explodingCubes.delete(c);
+      }
+    }
+  });
 
   renderer.render( scene, camera );
-
 }
+
+  renderer.render( scene, camera );
 
 function onWindowResize(){
 
@@ -98,20 +113,21 @@ window.addEventListener('resize', onWindowResize);
 //create skybox function
 
 const createskybox = () => {
-let bgMesh;
-const loader = new THREE.TextureLoader();
-  
+  let bgMesh;
+  const loader = new THREE.TextureLoader();
 
-  loader.load('C:/Users/S23230695/Documents/Java/Java-Html-Website/Assets/img/skybox.jpg', function(texture) {
-    var sphereGeometry = new THREE.sphereGeometry(100,60,40)
+  loader.load('Assets/img/skybox.jpg', function(texture) {
+    var sphereGeometry = new THREE.SphereGeometry(100, 60, 40);
     var sphereMaterial = new THREE.MeshBasicMaterial({
       map: texture,
       side: THREE.DoubleSide
-    })
-    sphereGeometry.scale(-1,1,1);
-    bgMesh = new THREE.Mesh(sphereGeometry , sphereMaterial);
+    });
+    sphereGeometry.scale(-1, 1, 1);
+    bgMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
     scene.add(bgMesh);
-    bgMesh.position.set(0,0,0)
-  })
-  
-}
+    bgMesh.position.set(0, 0, 0);
+  });
+};
+
+// Call the createskybox function so it is used
+createskybox();
