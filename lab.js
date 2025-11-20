@@ -129,5 +129,8 @@ const createskybox = () => {
   });
 };
 
+// Ensure renderer uses correct encoding for textures
+renderer.outputEncoding = THREE.sRGBEncoding;
+
 // Call the createskybox function so it is used
 createskybox();
