@@ -84,6 +84,7 @@
     <script>
         
         // Matrix rain effect
+        // reference: https://www.youtube.com/watch?v=y4K_5CVz7Cs
         const canvas = document.querySelector('.matrix-bg');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth;
@@ -101,7 +102,9 @@
             ctx.fillStyle = "#00ff41";
             for (let i = 0; i < drops.length; i++) {
                 const text = letters[Math.floor(Math.random() * letters.length)];
+                //checks if the drop is at the end of the screen
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                //random condtion for resetting drop
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }

@@ -50,7 +50,7 @@ cube6.position.y = -5
 
 camera.position.z = 10;
 
-// Store cubes in an array for easy access
+// cubes array
 const cubes = [cube, cube2, cube3, cube4, cube5, cube6];
 
 // Raycaster and mouse for click detection
@@ -70,6 +70,11 @@ renderer.domElement.addEventListener('pointerdown', (event) => {
   if (intersects.length > 0) {
     const clickedCube = intersects[0].object;
     explodingCubes.add(clickedCube);
+  }
+
+  if (intersects.length > 0) {
+    window.score = (window.score || 0) + 1;
+    console.log('Score:', window.score);
   }
 });
 
@@ -134,3 +139,4 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 
 // Call the createskybox function so it is used
 createskybox();
+
