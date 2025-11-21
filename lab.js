@@ -160,6 +160,7 @@ function animate() {
 
   renderer.render( scene, camera );
 
+  //window resize handler
 function onWindowResize(){
 
   camera.aspect = window.innerWidth / window.innerHeight;
