@@ -117,7 +117,7 @@ function animate() {
         scene.add(c);
         c.userData.explodeCounted = false;
         c.userData.respawnScheduled = false;
-      }, 5000);
+      }, 3000);
     }
   });
 
