@@ -94,7 +94,65 @@ function animate() {
         scene.remove(c);
         explodingCubes.delete(c);
       }
+
     }
+
+    if (!c.userData.originalPosition) {
+      c.userData.originalPosition = c.position.clone();
+    }
+
+    if (!scene.children.includes(c) && !c.userData.respawnScheduled) {
+      c.userData.respawnScheduled = true;
+      setTimeout(() => {
+        // reset transform and material
+        c.scale.set(1, 1, 1);
+        c.rotation.set(0, 0, 0);
+        if (c.material) {
+          c.material.opacity = 1;
+          c.material.transparent = false;
+        }
+        // restore original position
+        if (c.userData.originalPosition) c.position.copy(c.userData.originalPosition);
+        // add back to scene and allow scoring again
+        scene.add(c);
+        c.userData.explodeCounted = false;
+        c.userData.respawnScheduled = false;
+      }, 5000);
+    }
+  });
+
+  // create score UI 
+  let score = document.getElementById('scoreBoard');
+  if (!score) {
+    score = document.createElement('div');
+    score.id = 'scoreBoard';
+    score.style.position = 'fixed';
+    score.style.left = '10px';
+    score.style.top = '10px';
+    score.style.padding = '8px 12px';
+    score.style.background = 'rgba(0,0,0,0.6)';
+    score.style.color = '#fff';
+    score.style.fontFamily = 'monospace, monospace';
+    score.style.fontSize = '18px';
+    score.style.zIndex = '999';
+    document.body.appendChild(score);
+  }
+
+  // tracked score for explosions (separate from any existing window.score)
+  window.explodeScore = window.explodeScore || 0;
+
+  // update score display
+  score.textContent = 'Score: ' + window.explodeScore;
+
+  // detect cubes removed from scene and award points once per cube explosion
+  cubes.forEach(c => {
+    if (!c.userData.explodeCounted && !scene.children.includes(c)) {
+      c.userData.explodeCounted = true;
+      window.explodeScore++;
+      score.textContent = 'Score: ' + window.explodeScore;
+    }
+
+
   });
 
   renderer.render( scene, camera );
