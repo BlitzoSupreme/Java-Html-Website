@@ -53,6 +53,53 @@ camera.position.z = 10;
 // cubes array
 const cubes = [cube, cube2, cube3, cube4, cube5, cube6];
 
+// Whack-a-mole game variables
+const cubePositions = [
+  { x: -10, y: 0, z: 0 },
+  { x: 10, y: 0, z: 0 },
+  { x: 8, y: 5, z: 0 },
+  { x: -8, y: 5, z: 0 },
+  { x: 8, y: -5, z: 0 },
+  { x: -8, y: -5, z: 0 }
+];
+
+let gameStarted = false;
+
+setTimeout(() => {
+  gameStarted = true;
+  startWhackAMole();
+}, 5000);
+
+function startWhackAMole() {
+  cubes.forEach((cube, index) => {
+    cube.userData.isWhackAMole = true;
+    scheduleNextAppearance(cube, index);
+  });
+}
+
+function scheduleNextAppearance(cube, index) {
+  const delay = Math.random() * 3000 + 2000; // 2-5 seconds
+  
+  setTimeout(() => {
+    if (!gameStarted) return;
+    
+    // Show cube
+    scene.add(cube);
+    cube.visible = true;
+    cube.position.copy(cubePositions[index]);
+    
+    // Hide after 2-5 seconds
+    const showDuration = Math.random() * 3000 + 2000;
+    setTimeout(() => {
+      scene.remove(cube);
+      cube.visible = false;
+      
+      // Schedule next appearance
+      scheduleNextAppearance(cube, index);
+    }, showDuration);
+  }, delay);
+}
+
 // Raycaster and mouse for click detection
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
@@ -198,4 +245,5 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 
 // Call the createskybox function so it is used
 createskybox();
+
 
