@@ -1,0 +1,460 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        3.5176074504852295,
+        2.5064659118652344,
+        -1.1687778234481812
+      ],
+      "min": [
+        -3.5176072120666504,
+        -1.8952802419662476,
+        -4.175079822540283
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 319992,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        0.9999544024467468,
+        0.9986337423324585,
+        0.999994695186615
+      ],
+      "min": [
+        -0.9999544024467468,
+        -0.9998444318771362,
+        -0.9999996423721313
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        0.9979917407035828,
+        0.9999997019767761,
+        0.999988853931427,
+        1.0
+      ],
+      "min": [
+        -0.9999681115150452,
+        -0.9997312426567078,
+        -0.9999867677688599,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        1.0,
+        0.9642415046691895
+      ],
+      "min": [
+        -1.1080661721507568e-08,
+        -6.25877092375049e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 213328,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        1.0,
+        0.9642415046691895
+      ],
+      "min": [
+        -1.1080661721507568e-08,
+        -6.25877092375049e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 426656,
+      "componentType": 5126,
+      "count": 26666,
+      "max": [
+        1.0,
+        0.9642415046691895
+      ],
+      "min": [
+        -1.1080661721507568e-08,
+        -6.25877092375049e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 135660,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 639984,
+      "componentType": 5126,
+      "count": 4288,
+      "max": [
+        1.2704441547393799,
+        1.8354392051696777,
+        0.3360055088996887
+      ],
+      "min": [
+        -0.9062353372573853,
+        -0.14481870830059052,
+        -0.1346425712108612
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 691440,
+      "componentType": 5126,
+      "count": 4288,
+      "max": [
+        0.9961934089660645,
+        0.9999911189079285,
+        0.9992291331291199
+      ],
+      "min": [
+        -0.9961933493614197,
+        -0.9999908804893494,
+        -0.9998408555984497
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 639984,
+      "componentType": 5126,
+      "count": 4288,
+      "max": [
+        0.9916585087776184,
+        1.0000001192092896
+      ],
+      "min": [
+        -1.4709923945588343e-08,
+        -6.082377268512573e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 674288,
+      "componentType": 5126,
+      "count": 4288,
+      "max": [
+        0.9916585087776184,
+        1.0000001192092896
+      ],
+      "min": [
+        -1.4709923945588343e-08,
+        -6.082377268512573e-08
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 542640,
+      "componentType": 5125,
+      "count": 14208,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Fridge (https://sketchfab.com/youssefdarwish01)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/neo-shades-9c245663fb2141aeba813ca0d7d9bb07",
+      "title": "Neo Shades"
+    },
+    "generator": "Sketchfab-16.12.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 599472,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 708592,
+      "byteOffset": 599472,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 742896,
+      "byteOffset": 1308064,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 426656,
+      "byteOffset": 2050960,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2477616,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/NeoJacket_baseColor.png"
+    },
+    {
+      "uri": "textures/NeoJacket_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/NeoJacket_normal.png"
+    },
+    {
+      "uri": "textures/NeoShades_baseColor.png"
+    },
+    {
+      "uri": "textures/NeoShades_metallicRoughness.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "NeoJacket",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "NeoShades",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 3
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 4
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "NeoJacket_NeoJacket_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "NeoGlasses_NeoShades_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TEXCOORD_0": 9,
+            "TEXCOORD_1": 10
+          },
+          "indices": 11,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "NeoShades.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        99.9999999999999,
+        4.371138828673792e-06,
+        0.0,
+        0.0,
+        -4.371138828673792e-06,
+        99.9999999999999,
+        0.0,
+        107.2022705078125,
+        28.332090377807617,
+        432.81048583984375,
+        1.0
+      ],
+      "name": "NeoJacket"
+    },
+    {
+      "mesh": 0,
+      "name": "NeoJacket_NeoJacket_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        -99.9999999999913,
+        3.894143675412448e-05,
+        1.5099579909783709e-05,
+        0.0,
+        -7.420086162600949e-06,
+        19.013297631636203,
+        -98.17582689894654,
+        0.0,
+        -4.110200560906592e-05,
+        -98.1758268989391,
+        -19.013297631631662,
+        0.0,
+        116.24272155761719,
+        367.5470275878906,
+        288.4524230957031,
+        1.0
+      ],
+      "name": "NeoGlasses"
+    },
+    {
+      "mesh": 1,
+      "name": "NeoGlasses_NeoShades_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    }
+  ]
+}

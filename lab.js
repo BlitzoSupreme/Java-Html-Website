@@ -277,7 +277,7 @@ const createskybox = () => {
   let bgMesh;
   const loader = new THREE.TextureLoader();
 
-  loader.load('Assets/img/skybox.jpg', function(texture) {
+  loader.load('Assets/img/matrix-code.jpg', function(texture) {
     var sphereGeometry = new THREE.SphereGeometry(100, 60, 40);
     var sphereMaterial = new THREE.MeshBasicMaterial({
       map: texture,
