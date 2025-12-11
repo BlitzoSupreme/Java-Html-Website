@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 const scene = new THREE.Scene();
@@ -187,27 +186,10 @@ function animate() {
     document.body.appendChild(score);
   }
 
-  // tracked score for explosions (separate from any existing window.score)
-  window.explodeScore = window.explodeScore || 0;
-
-  // update score display
-  score.textContent = 'Score: ' + window.explodeScore;
-
-  // detect cubes removed from scene and award points once per cube explosion
-  cubes.forEach(c => {
-    if (!c.userData.explodeCounted && !scene.children.includes(c)) {
-      c.userData.explodeCounted = true;
-      window.explodeScore++;
-      score.textContent = 'Score: ' + window.explodeScore;
-    }
-
-
-  });
+  score.textContent = 'Score: ' + (window.score || 0);
 
   renderer.render( scene, camera );
 }
-
-  renderer.render( scene, camera );
 
   //window resize handler
 function onWindowResize(){
@@ -220,13 +202,74 @@ function onWindowResize(){
 
 }
 
+//timer implementation
+let timeRemaining = 60;
+const timerElement = document.createElement('div');
+timerElement.id = 'timer';
+timerElement.style.position = 'fixed';
+timerElement.style.top = '50%';
+timerElement.style.left = '50%';
+timerElement.style.transform = 'translate(-50%, -50%)';
+timerElement.style.fontSize = '80px';
+timerElement.style.fontWeight = 'bold';
+timerElement.style.color = '#00ff6aff';
+timerElement.style.fontFamily = 'monospace';
+timerElement.style.textShadow = '0 0 10px rgba(0,0,0,0.8)';
+timerElement.style.zIndex = '1000';
+document.body.appendChild(timerElement);
+
+const timerInterval = setInterval(() => {
+  timerElement.textContent = Math.max(0, timeRemaining);
+  if (timeRemaining <= 0) {
+    clearInterval(timerInterval);
+  }
+  timeRemaining--;
+}, 1000);
+
+const endGameOverlay = document.createElement('div');
+endGameOverlay.style.position = 'fixed';
+endGameOverlay.style.top = '0';
+endGameOverlay.style.left = '0';
+endGameOverlay.style.width = '100%';
+endGameOverlay.style.height = '100%';
+endGameOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+endGameOverlay.style.color = 'green';
+endGameOverlay.style.fontSize = '48px';
+endGameOverlay.style.fontWeight = 'bold';
+endGameOverlay.style.display = 'flex';
+endGameOverlay.style.flexDirection = 'column';
+endGameOverlay.style.alignItems = 'center';
+endGameOverlay.style.justifyContent = 'center';
+endGameOverlay.style.zIndex = '1001';
+endGameOverlay.style.visibility = 'hidden'; // Initially hidden
+document.body.appendChild(endGameOverlay);
+
+const scoreText = document.createElement('div');
+endGameOverlay.appendChild(scoreText);
+
+const restartButton = document.createElement('button');
+restartButton.textContent = 'Restart Game';
+restartButton.style.marginTop = '20px';
+restartButton.style.padding = '10px 20px';
+restartButton.style.fontSize = '24px';
+restartButton.style.cursor = 'pointer';
+restartButton.onclick = () => {
+  location.reload(); // Reload the page to restart the game
+};
+endGameOverlay.appendChild(restartButton);
+
+
+setInterval(() => {
+  timerElement.textContent = Math.max(0, timeRemaining);
+  if (timeRemaining <= 0) {
+    clearInterval(timerInterval);
+    endGameOverlay.style.visibility = 'visible'; // Show overlay
+    scoreText.textContent = 'Your Score: ' + (window.score || 0);
+  }
+  timeRemaining--;
+}, 1000);
+
 window.addEventListener('resize', onWindowResize);
-
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.autoRotate = false;
-
 
 //create skybox function
 
